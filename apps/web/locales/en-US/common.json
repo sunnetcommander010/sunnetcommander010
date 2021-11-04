@@ -69,8 +69,8 @@
   },
   "global": {
     "language": "English",
-    "pageTitle": "Algorand Storefront",
-    "pageDescription": "The best strorefront for all your NFT assets",
+    "pageTitle": "SPIN",
+    "pageDescription": "The official SPIN storefront for your NFT assets",
     "rarityDefault": "Common",
     "404": {
       "title": "Uh oh! There's nothing to see here.",
@@ -121,15 +121,16 @@
       "My profile picture": "My profile picture"
     },
     "social": {
+      "Facebook": "Facebook",
       "Instagram": "Instagram",
+      "Twitch": "Twitch",
       "Twitter": "Twitter",
-      "Discord": "Discord",
-      "Blog": "Blog"
+      "YouTube": "YouTube"
     },
     "legal": {
       "Community Guidelines": "Community Guidelines",
       "Terms Of Service": "Terms Of Service",
-      "copyright": "©2021 Algorand"
+      "copyright": "©2021 SPIN"
     }
   },
   "statuses": {
