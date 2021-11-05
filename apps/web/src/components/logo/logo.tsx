@@ -25,7 +25,7 @@ export default function Logo({
   color = 'grey',
   layout = 'responsive',
 }: LogoProps) {
-  const props = { alt: 'Algorand Storefront', layout, className }
+  const props = { alt: 'SPIN logo', layout, className }
   const image =
     color === 'grey' ? (
       <Image src={ImageGrey} {...props} width={24} height={24} />
