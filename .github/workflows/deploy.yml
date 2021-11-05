@@ -25,7 +25,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    # environment: development
     needs:
       - tag
     strategy:
@@ -82,7 +81,6 @@ jobs:
 
   terraform:
     runs-on: ubuntu-latest
-    # environment: development
     needs:
       - tag
       - build
