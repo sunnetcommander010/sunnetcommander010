@@ -35,7 +35,7 @@ module.exports = {
       },
       colors: {
         base: {
-          errorRed: '#AC0000',
+          errorRed: '#FF0000',
           green: '#02FBC2',
           priceGreen: '#33C500',
           teal: '#12DCC5',
