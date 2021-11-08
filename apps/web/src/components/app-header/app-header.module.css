@@ -52,14 +52,14 @@
   /* Base */
   @apply hidden;
   /* Tablet + */
-  @apply md:grid;
+  @apply md:flex;
 }
 
 .mainNavLink {
   /* Base */
-  @apply block py-5 text-xl font-bold border-t focus:outline-none border-t-base-gray-border;
+  @apply block py-5 text-xl font-bold font-extrabold tracking-wider no-underline border-t focus:outline-none border-t-base-gray-border;
   /* Tablet + */
-  @apply md:border-b-6 md:border-base-red md:border-opacity-0 md:border-t-0 md:inline md:no-underline md:p-5 md:text-base md:focus:border-opacity-50 md:hover:border-opacity-50;
+  @apply md:border-b-2 md:border-base-red md:border-opacity-0 md:border-t-0 md:inline md:py-3 md:mx-8 md:text-sm md:focus:border-opacity-50 md:hover:border-opacity-50;
 }
 
 .mainNavLink:first-child {

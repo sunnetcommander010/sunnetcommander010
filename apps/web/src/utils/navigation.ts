@@ -3,6 +3,7 @@ import { Translate } from 'next-translate'
 import { urls } from './urls'
 
 export const getMainNavItems = (t: Translate) => [
+  { href: urls.home, label: t('common:nav.main.Home') },
   { href: urls.releases, label: t('common:nav.main.Releases') },
   { href: urls.myCollectibles, label: t('common:nav.main.My Collection') },
 ]

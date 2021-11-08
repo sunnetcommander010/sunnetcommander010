@@ -96,7 +96,7 @@
     "Profile Setup": "Profile Setup",
     "Redeem": "Redeem",
     "Release": "{{name}}",
-    "Releases": "Releases",
+    "Releases": "NFTs",
     "Reset Password": "Reset Password",
     "Security": "Security",
     "Setup Profile": "Setup Profile",
@@ -111,9 +111,10 @@
       "Legal": "Legal"
     },
     "main": {
-      "Releases": "Releases",
+      "Home": "HOME",
+      "Releases": "NFTs",
       "Brands": "Brands",
-      "My Collection": "My Collection"
+      "My Collection": "MY COLLECTION"
     },
     "utility": {
       "Log In": "Log In",

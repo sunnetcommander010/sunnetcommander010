@@ -57,7 +57,8 @@ export default function AppHeader() {
           })}
         >
           {navItems.map(({ href, label }) => {
-            const isCurrentNavItem = isRootPathMatch(pathname, href)
+            const isCurrentNavItem =
+              href === '/' ? pathname === '/' : isRootPathMatch(pathname, href)
             return (
               <AppLink
                 className={clsx(css.mainNavLink, {
