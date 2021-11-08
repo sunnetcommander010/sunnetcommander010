@@ -34,7 +34,7 @@
 }
 
 .toggleEnabled.toggleDark {
-  @apply bg-base-teal;
+  @apply bg-base-red;
 }
 
 .toggleNotEnabled.toggleDark {

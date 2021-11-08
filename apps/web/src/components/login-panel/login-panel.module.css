@@ -2,14 +2,12 @@
   /* Base */
   @apply relative mx-auto;
   /* Tablet + */
-  @apply md:max-w-520 md:overflow-hidden md:rounded-xl;
+  @apply md:max-w-520 md:overflow-hidden;
 }
 
 .buttonContainer {
   /* Base */
-  @apply flex flex-col px-8 py-12 space-y-8 bg-base-teal;
-  /* Mobile + */
-  @apply sm:p-16;
+  @apply flex flex-col p-8 space-y-8;
 }
 
 .button {

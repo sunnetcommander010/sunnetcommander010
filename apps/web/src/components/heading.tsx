@@ -3,7 +3,6 @@ import { createElement, ReactNode } from 'react'
 
 export interface HeadingProps {
   children: ReactNode
-  inheritColor?: boolean
   className?: string
   level?: number
   size?: number
@@ -13,7 +12,6 @@ export interface HeadingProps {
 export default function Heading({
   children,
   className,
-  inheritColor,
   level = 1,
   bold,
   size,
@@ -24,9 +22,9 @@ export default function Heading({
     `h${level}`,
     {
       className: clsx(
+        'uppercase',
         {
-          'text-base-gray-dark': !inheritColor,
-          'font-bold text-2xl': size === 1,
+          'font-bold text-3xl': size === 1,
           'text-xl': size === 2,
           'text-lg': size === 3,
           'text-md': size === 4,

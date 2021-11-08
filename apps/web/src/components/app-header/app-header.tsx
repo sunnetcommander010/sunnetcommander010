@@ -8,6 +8,7 @@ import { useState } from 'react'
 import css from './app-header.module.css'
 
 import AppLink from '@/components/app-link/app-link'
+import Button from '@/components/button'
 import Logo from '@/components/logo/logo'
 import { useAuth } from '@/contexts/auth-context'
 import { getMainNavItems } from '@/utils/navigation'
@@ -46,7 +47,7 @@ export default function AppHeader() {
 
         {/* Logo */}
         <div className={css.logo}>
-          <Logo linkClassName={css.logoLink} color="black" />
+          <Logo linkClassName={css.logoLink} />
         </div>
 
         {/* Main Nav */}
@@ -73,34 +74,34 @@ export default function AppHeader() {
         </div>
 
         {/* Utility Nav */}
-        <div className={css.utilityNav}>
-          <AppLink
-            aria-label={
-              isAuthenticated
-                ? t('common:pageTitles.My Profile')
-                : t('common:nav.utility.Log In')
-            }
-            className={css.utilityNavLink}
-            href={isAuthenticated ? urls.myProfile : urls.login}
-            title={
-              isAuthenticated
-                ? t('common:pageTitles.My Profile')
-                : t('common:nav.utility.Log In')
-            }
-          >
-            {auth.user?.photo ? (
-              <Image
-                alt={t('common:nav.utility.My profile picture')}
-                src={auth.user.photo}
-                layout="responsive"
-                height="100%"
-                width="100%"
-              />
-            ) : (
-              <UserCircleIcon className={css.avatarGeneric} />
-            )}
-          </AppLink>
-        </div>
+        {!isAuthenticated && (
+          <Button href={urls.login} variant="primary" size="small">
+            {t('common:nav.utility.Log In')}
+          </Button>
+        )}
+
+        {isAuthenticated && (
+          <div className={css.utilityNav}>
+            <AppLink
+              aria-label={t('common:pageTitles.My Profile')}
+              className={css.utilityNavLink}
+              href={urls.myProfile}
+              title={t('common:pageTitles.My Profile')}
+            >
+              {auth.user?.photo ? (
+                <Image
+                  alt={t('common:nav.utility.My profile picture')}
+                  src={auth.user.photo}
+                  layout="responsive"
+                  height="100%"
+                  width="100%"
+                />
+              ) : (
+                <UserCircleIcon className={css.avatarGeneric} />
+              )}
+            </AppLink>
+          </div>
+        )}
       </nav>
     </header>
   )
