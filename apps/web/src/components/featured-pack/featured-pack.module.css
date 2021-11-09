@@ -1,6 +1,6 @@
 .featured {
   /* Base */
-  @apply flex flex-col bg-white shadow-lg;
+  @apply flex flex-col bg-black shadow-lg;
 }
 
 @screen md {
