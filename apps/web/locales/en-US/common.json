@@ -69,12 +69,12 @@
   },
   "global": {
     "language": "English",
-    "pageTitle": "Algorand Storefront",
-    "pageDescription": "The best strorefront for all your NFT assets",
+    "pageTitle": "SPIN",
+    "pageDescription": "The official SPIN storefront for your NFT assets",
     "rarityDefault": "Common",
     "404": {
       "title": "Uh oh! There's nothing to see here.",
-      "body": "<0>Unfortunately this page doesn't exist. Sorry about that! <1>Click here</1> to go home, or browse some of our <2>latest releases</2>.</0>"
+      "body": "<0>Unfortunately this page doesn't exist. <1>Click here</1> to go home, or browse some of our <2>latest releases</2>.</0>"
     }
   },
   "localization": {
@@ -96,7 +96,7 @@
     "Profile Setup": "Profile Setup",
     "Redeem": "Redeem",
     "Release": "{{name}}",
-    "Releases": "Releases",
+    "Releases": "NFTs",
     "Reset Password": "Reset Password",
     "Security": "Security",
     "Setup Profile": "Setup Profile",
@@ -111,9 +111,10 @@
       "Legal": "Legal"
     },
     "main": {
-      "Releases": "Releases",
+      "Home": "HOME",
+      "Releases": "NFTs",
       "Brands": "Brands",
-      "My Collection": "My Collection"
+      "My Collection": "MY COLLECTION"
     },
     "utility": {
       "Log In": "Log In",
@@ -121,15 +122,16 @@
       "My profile picture": "My profile picture"
     },
     "social": {
+      "Facebook": "Facebook",
       "Instagram": "Instagram",
+      "Twitch": "Twitch",
       "Twitter": "Twitter",
-      "Discord": "Discord",
-      "Blog": "Blog"
+      "YouTube": "YouTube"
     },
     "legal": {
       "Community Guidelines": "Community Guidelines",
       "Terms Of Service": "Terms Of Service",
-      "copyright": "©2021 Algorand"
+      "copyright": "©2021 SPIN"
     }
   },
   "statuses": {

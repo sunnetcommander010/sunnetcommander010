@@ -1,5 +1,5 @@
 .root {
-  @apply relative flex flex-col h-full overflow-hidden text-center bg-white rounded-md shadow-large;
+  @apply relative flex flex-col h-full overflow-hidden text-center bg-black shadow-large;
 }
 
 .imageWrapper {
@@ -7,11 +7,11 @@
 }
 
 .content {
-  @apply p-4;
+  @apply p-4 border-b-1 border-base-gray-border;
 }
 
 .title {
-  @apply px-4 text-lg font-bold text-base-gray-dark;
+  @apply px-4 text-lg font-bold;
 }
 
 .metadata {
@@ -23,12 +23,16 @@
   @apply grid grid-cols-1;
 }
 
+.metadata > div + div {
+  @apply border-l-1 border-base-gray-border;
+}
+
 .metadata > div {
-  @apply flex flex-col justify-center p-4 text-white bg-base-gray-dark;
+  @apply flex flex-col justify-center p-4;
 }
 
 .metadataLabel {
-  @apply text-sm;
+  @apply text-xs text-base-gray-text;
 }
 
 .metadataValue {

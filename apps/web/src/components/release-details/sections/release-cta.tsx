@@ -77,7 +77,7 @@ export default function ReleaseCTA({
   return (
     <div className={css.root}>
       <Button
-        className={isWinningBidder || isOwner ? css.tealButton : ''}
+        variant={isWinningBidder ? 'primary' : undefined}
         fullWidth
         onClick={onClick}
       >

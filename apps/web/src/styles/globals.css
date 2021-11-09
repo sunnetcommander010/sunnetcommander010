@@ -3,12 +3,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
 @layer base {
+  /* Base styles */
+  @font-face {
+    font-family: 'Larsseit';
+    src: url('/fonts/Larsseit/Larsseit-Regular.woff') format('woff'),
+      url('/fonts/Larsseit/Larsseit-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Larsseit';
+    src: url('/fonts/Larsseit/Larsseit-Medium.woff2') format('woff2'),
+      url('/fonts/Larsseit/Larsseit-Medium.woff') format('woff');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Larsseit';
+    src: url('/fonts/Larsseit/Larsseit-Bold.woff2') format('woff2'),
+      url('/fonts/Larsseit/Larsseit-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Larsseit';
+    src: url('/fonts/Larsseit/Larsseit-ExtraBold.woff2') format('woff2'),
+      url('/fonts/Larsseit/Larsseit-ExtraBold.woff') format('woff');
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+  }
+
   html,
   body {
-    @apply h-full;
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system !important;
+    @apply h-full text-white bg-black;
+    font-family: 'Larsseit', serif, system-ui, -apple-system !important;
   }
 }
 

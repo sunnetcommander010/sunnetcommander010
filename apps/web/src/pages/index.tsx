@@ -5,6 +5,10 @@ import { useCallback } from 'react'
 
 import { ApiClient } from '@/clients/api-client'
 import DefaultLayout from '@/layouts/default-layout'
+import {
+  getAuthenticatedUser,
+  handleUnauthenticatedRedirect,
+} from '@/services/api/auth-service'
 import HomeTemplate from '@/templates/home-template'
 import { urls } from '@/utils/urls'
 
@@ -34,6 +38,11 @@ export default function Home({ page }: HomeProps) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // Redirect unauthenticated users to login
+  const user = await getAuthenticatedUser(context)
+  if (!user) {
+    return handleUnauthenticatedRedirect(context.resolvedUrl)
+  }
   return {
     props: {
       page: await ApiClient.instance.getHomepage(

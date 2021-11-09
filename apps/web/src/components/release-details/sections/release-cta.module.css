@@ -13,7 +13,3 @@
 .actionNotAllowed {
   @apply text-center text-base-errorRed;
 }
-
-.tealButton {
-  @apply bg-base-teal;
-}

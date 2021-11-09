@@ -65,7 +65,7 @@ export default function CollectibleBrowserDialog({
           aria-label={t('common:actions.Close')}
           onClick={onClose}
           className={css.closeButton}
-          variant="tertiary"
+          variant="secondary"
         >
           <XCircleIcon />
         </Button>

@@ -11,14 +11,11 @@
 }
 
 .sectionHeading {
-  /* Base */
-  @apply mb-1 text-lg font-bold text-base-gray-dark;
-  /* Tablet + */
-  @apply md:text-xl;
+  @apply mb-1 text-lg font-bold;
 }
 
 .confirmation {
-  @apply mb-2 text-sm font-light text-right text-base-teal;
+  @apply mb-2 text-sm font-light text-right text-base-red;
 }
 
 .error {
@@ -26,13 +23,13 @@
 }
 
 .sectionContent {
-  @apply p-6 rounded-md border-1 border-base-gray-border;
+  @apply p-6 border-1 border-base-gray-border;
 }
 
 .sectionContentLarge {
-  @apply p-12 rounded-md border-1 border-base-gray-border;
+  @apply p-12 border-1 border-base-gray-border;
 }
 
 .sectionText {
-  @apply mb-4 text-base-gray-dark;
+  @apply mb-4;
 }

@@ -40,33 +40,28 @@ export default function SignupTemplate({
 }: SignupTemplateProps) {
   const { t } = useTranslation()
   return (
-    <>
+    <form className="relative max-w-sm mx-auto" onSubmit={handleCreateProfile}>
       <Heading className="mb-8 text-center">
         {t('auth:Setup your account')}
       </Heading>
-      <form
-        className="relative max-w-sm mx-auto"
-        onSubmit={handleCreateProfile}
-      >
-        {status === 'error' && error && (
-          <Notification
-            className="mb-6"
-            content={t('forms:errors.emailAlreadyInUse')}
-            variant="red"
-          />
-        )}
-        <Email error={formErrors.email} t={t} />
-        <Username error={formErrors.username} t={t} />
-        <Password error={formErrors.password} t={t} />
-        <ProfileImage
-          handleProfilePicAccept={handleProfilePicAccept}
-          handleProfilePicClear={handleProfilePicClear}
-          t={t}
-          profilePic={profilePic}
+      {status === 'error' && error && (
+        <Notification
+          className="mb-6"
+          content={t('forms:errors.emailAlreadyInUse')}
+          variant="red"
         />
-        <Passphrase error={formErrors.passphrase} t={t} />
-        <Submit disabled={status === 'loading'} t={t} />
-      </form>
-    </>
+      )}
+      <Email error={formErrors.email} t={t} />
+      <Username error={formErrors.username} t={t} />
+      <Password error={formErrors.password} t={t} />
+      <ProfileImage
+        handleProfilePicAccept={handleProfilePicAccept}
+        handleProfilePicClear={handleProfilePicClear}
+        t={t}
+        profilePic={profilePic}
+      />
+      <Passphrase error={formErrors.passphrase} t={t} />
+      <Submit disabled={status === 'loading'} t={t} />
+    </form>
   )
 }

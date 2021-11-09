@@ -114,7 +114,7 @@ export default function ClaimNFTModal({
             aria-label={t('common:actions.Close')}
             className={css.closeButton}
             onClick={() => handleClose(!open)}
-            variant="tertiary"
+            variant="secondary"
           >
             {'\u2717'}
           </Button>

@@ -120,7 +120,7 @@ export default function MyProfilePaymentMethodsTemplate({
                 setIsModalOpen(!isModalOpen)
                 setActiveMethod(null)
               }}
-              variant="tertiary"
+              variant="secondary"
             >
               {'\u2717'}
             </Button>

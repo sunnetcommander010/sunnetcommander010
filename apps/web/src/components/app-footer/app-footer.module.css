@@ -1,0 +1,31 @@
+.bottomNav {
+  @apply p-8;
+}
+
+.bottomNavWrapper {
+  /* Base */
+  @apply relative mx-auto text-center max-w-wrapper;
+  /* Tablet + */
+  @apply md:flex md:items-center md:justify-between md:text-center;
+}
+
+.navLeft {
+  flex-basis: 50%;
+  @apply md:space-x-4 md:text-left;
+}
+
+.navRight {
+  flex-basis: 50%;
+  @apply md:space-x-4 md:text-right;
+}
+
+.logo {
+  @apply absolute top-0 md:relative;
+}
+
+.bottomNavLinks {
+  /* Base */
+  @apply block mb-4 text-sm outline-none text-base-gray-medium focus:text-white hover:text-white;
+  /* Tablet + */
+  @apply md:inline md:mb-0;
+}

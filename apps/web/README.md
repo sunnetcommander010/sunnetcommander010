@@ -61,17 +61,17 @@ src/ # Main source code
 
 ## General workflow
 
-The `web` package relies heavily on the `api` package, which in conjunction with the `cms` package, orchestrates the handling of data and content. For this reason, the `web` package doesn't need its own database, but it does rely on Next.js's internal mechanisms (such as its request/response api handlers (see `./packages/web/src/pages/api/*`) as well as its `getServerSideProps`) to make `GET` and `POST` requests to the `api`.
+The `web` package relies heavily on the `api` package, which in conjunction with the `cms` package, orchestrates the handling of data and content. For this reason, the `web` package doesn't need its own database, but it does rely on Next.js's internal mechanisms (such as its request/response api handlers (see `./apps/web/src/pages/api/*`) as well as its `getServerSideProps`) to make `GET` and `POST` requests to the `api`.
 
 ### The API Client
 
-The API Client (see `./packages/web/src/clients/api-client.ts` is the class that makes handshakes with the `api` package and it can be accessed from within the web app's backend service layer (see `./packages/web/src/services`) or from its api layer (see: `./packages/web/src/pages/api/*`).
+The API Client (see `./apps/web/src/clients/api-client.ts` is the class that makes handshakes with the `api` package and it can be accessed from within the web app's backend service layer (see `./apps/web/src/services`) or from its api layer (see: `./apps/web/src/pages/api/*`).
 
 These two backend layers can be called directly from the browser and act as a proxy between the frontend and the `api` package.
 
 ### User Management
 
-[Firebase](https://firebase.google.com/) is leveraged as a simple authentication mechanism (as well as the storage of registered user avatars). You can see the implementation details in `./packages/web/src/contexts/auth-context.tsx`.
+[Firebase](https://firebase.google.com/) is leveraged as a simple authentication mechanism (as well as the storage of registered user avatars). You can see the implementation details in `./apps/web/src/contexts/auth-context.tsx`.
 
 The Firebase footprint within the `web` package is small and isolated, so it can be replaced with another authentication solution with minimal effort if need be.
 

@@ -1,8 +1,8 @@
 .root {
   /* Base */
-  @apply fixed top-0 z-20 w-full bg-white shadow-medium;
+  @apply fixed top-0 z-20 w-full text-white bg-black;
   /* Tablet + */
-  @apply md:bg-transparent md:pt-4 md:relative md:shadow-none;
+  @apply md:relative md:shadow-none;
 }
 
 .rootMobileVisible {
@@ -25,7 +25,7 @@
 
 .hamburger {
   /* Base */
-  @apply block text-base-gray-medium;
+  @apply block text-white;
   width: 24px;
 }
 
@@ -37,32 +37,29 @@
 }
 
 .logoLink {
-  /* Base */
-  @apply inline-block w-8 h-8;
-  /* Tablet + */
-  @apply md:w-10 md:h-10;
+  @apply inline-block;
 }
 
 .mainNav {
   /* Base */
-  @apply absolute left-0 w-full h-full px-10 pt-6 bg-white border-base-gray-bg border-t-1;
+  @apply absolute left-0 w-full h-full px-10;
   top: 68px;
   /* Tablet + */
-  @apply md:bg-white md:border-0 md:col-span-2 md:grid md:grid-cols-2 md:h-auto md:justify-center md:overflow-hidden md:p-0 md:relative md:rounded-md md:shadow-large md:text-center md:top-0 md:w-auto;
+  @apply md:border-0 md:col-span-2 md:grid md:grid-cols-2 md:h-auto md:justify-center md:overflow-hidden md:p-0 md:relative md:shadow-large md:text-center md:top-0 md:w-auto;
 }
 
 .mainNavHidden {
   /* Base */
   @apply hidden;
   /* Tablet + */
-  @apply md:grid;
+  @apply md:flex;
 }
 
 .mainNavLink {
   /* Base */
-  @apply block py-5 text-3xl font-bold transition duration-300 border-t focus:outline-none border-t-base-gray-border text-base-gray-text hover:text-base-gray-dark;
+  @apply block py-5 text-xl font-bold font-extrabold tracking-wider no-underline border-t focus:outline-none border-t-base-gray-border;
   /* Tablet + */
-  @apply md:border-b-6 md:border-base-teal md:border-opacity-0 md:border-t-0 md:inline md:no-underline md:p-6 md:text-base md:focus:border-opacity-50 md:hover:border-opacity-50 md:hover:text-base-gray-text;
+  @apply md:border-b-2 md:border-base-red md:border-opacity-0 md:border-t-0 md:inline md:py-3 md:mx-8 md:text-sm md:focus:border-opacity-50 md:hover:border-opacity-50;
 }
 
 .mainNavLink:first-child {
@@ -71,9 +68,9 @@
 
 .mainNavLink.mainNavLinkActive {
   /* Base */
-  @apply text-base-teal;
+  @apply text-base-red;
   /* Tablet + */
-  @apply md:border-opacity-100 md:text-base-gray-text;
+  @apply md:border-opacity-100 md:text-white;
 }
 
 .utilityNav {
@@ -83,7 +80,7 @@
 
 .utilityNavLink {
   /* Base */
-  @apply block overflow-hidden transition duration-300 bg-white rounded-full outline-none text-base-gray-text focus:ring-2 focus:ring-base-teal focus:ring-offset-2 focus:ring-opacity-50 hover:bg-base-teal hover:bg-opacity-50;
+  @apply block overflow-hidden transition duration-300 bg-white rounded-full outline-none text-base-gray-text focus:ring-2 focus:ring-base-red focus:ring-offset-2 focus:ring-opacity-50 hover:bg-base-red hover:bg-opacity-50;
   /* Tablet + */
   @apply md:shadow-medium;
   height: 36px;

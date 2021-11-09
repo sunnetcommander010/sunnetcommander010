@@ -16,7 +16,7 @@
 
 .content {
   /* Base */
-  @apply inline-block w-full h-full px-4 pt-5 pb-4 text-left align-middle transition-all transform rounded-lg shadow-xl;
+  @apply inline-block w-full h-full px-4 pt-5 pb-4 text-left align-middle transition-all transform shadow-xl;
   /* Tablet + */
   @apply md:my-0;
 }

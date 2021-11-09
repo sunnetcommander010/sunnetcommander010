@@ -21,9 +21,6 @@ module.exports = {
       backgroundImage: {
         'pack-texture': "url('/images/textures/pack-texture.jpg')",
       },
-      borderRadius: {
-        sm: '4px',
-      },
       borderWidth: {
         1: '1px',
         6: '6px',
@@ -35,19 +32,19 @@ module.exports = {
       },
       colors: {
         base: {
-          errorRed: '#AC0000',
+          errorRed: '#FF0000',
+          red: '#FF0000',
           green: '#02FBC2',
           priceGreen: '#33C500',
-          teal: '#12DCC5',
           gray: {
-            dark: '#0A111D',
-            text: '#4B4F56',
-            nav: '#808080',
-            notice: '#F9F8F9',
-            medium: '#747F8F',
-            light: '#B6BECB',
-            border: '#DADCDF',
-            bg: '#ECECEC',
+            dark: '#252222',
+            medium: '#554E4E',
+            light: '#808080',
+            text: '#B6B6B6',
+            nav: '#808080', // XXX
+            notice: '#F9F8F9', // XXX
+            border: '#252222',
+            bg: '#ECECEC', // XXX
           },
         },
       },

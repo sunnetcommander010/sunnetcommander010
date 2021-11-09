@@ -22,7 +22,7 @@ export default function TextBox({
 }: TextBoxProps) {
   return (
     <group position-x={groupPositionX} position-y={groupPositionY}>
-      <RoundedBox args={boxDimensions} position-z={1.4} radius={0.25}>
+      <RoundedBox args={boxDimensions} position-z={1.4}>
         <meshStandardMaterial
           attach="material"
           color="#fff"

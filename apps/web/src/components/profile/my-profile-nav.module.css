@@ -21,12 +21,12 @@
 }
 
 .mobileWrapper label {
-  @apply mx-auto transform translate-y-1/2 shadow-large;
+  @apply mx-auto transform translate-y-1/2;
   max-width: 200px;
 }
 
 .listWrapper {
-  @apply mb-5 bg-white rounded-sm shadow-large;
+  @apply mb-5 bg-black border-1 border-base-gray-medium;
 }
 
 .listItem {
@@ -38,5 +38,5 @@
 }
 
 .listItemActive a {
-  @apply text-base font-bold text-base-teal;
+  @apply text-base font-bold text-base-red;
 }
