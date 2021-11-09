@@ -58,6 +58,7 @@ export default function Alert({
       </div>
       {callToAction && (
         <Button
+          size="small"
           className={clsx(css.callToAction, css.fullHeight)}
           onClick={handleClick}
         >

@@ -25,7 +25,7 @@ export default function Button({
   DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> &
   DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
+    HTMLButtonElement | HTMLAnchorElement
   >) {
   const Component: any = href ? 'a' : 'button'
 

@@ -27,11 +27,11 @@
 }
 
 .selectedMediaWrapper {
-  @apply relative bg-base-gray-border;
+  @apply relative border-t border-b border-base-gray-border;
 }
 
 .aspect {
-  @apply aspect-h-1 aspect-w-1;
+  aspect-ratio: 25/31;
 }
 
 .contain {

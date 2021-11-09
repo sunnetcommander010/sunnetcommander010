@@ -28,7 +28,7 @@ export default function ReleaseItem({ pack }: ReleaseItemProps) {
       <div className={css.imageWrapper}>
         <Image
           alt={pack.title}
-          height={250}
+          height={310}
           layout="responsive"
           loader={cmsImageLoader}
           objectFit="contain"

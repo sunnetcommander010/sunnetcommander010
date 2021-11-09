@@ -1,5 +1,5 @@
 .alertWrapper {
-  @apply h-20 bg-white text-base-gray-text;
+  @apply h-20;
 }
 
 .alertWrapper span {
@@ -31,5 +31,5 @@
 }
 
 .callToAction {
-  @apply flex-none bg-black font-normal mr-5 px-10 py-2.5 text-sm text-white;
+  @apply mr-5 whitespace-nowrap;
 }
