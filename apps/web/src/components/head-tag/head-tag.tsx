@@ -20,8 +20,7 @@ export default function HeadTag({ pageDescription, pageTitle }: HeadTagProps) {
         name="description"
         content={pageDescription ?? t('common:global.pageDescription')}
       />
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="icon" href="/favicon-180.png" />
       <link rel="apple-touch-icon" href="/favicon-180.png" />
       <link rel="manifest" href="/manifest.json" />
 
