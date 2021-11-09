@@ -37,6 +37,7 @@ export default function ReleasesTemplate({
       {/* Sorting */}
       <div className={css.selectWrapper}>
         <Select
+          invert
           className={css.select}
           handleChange={(option) => dispatch(packFilterActions.setSort(option))}
           id="sortOption"

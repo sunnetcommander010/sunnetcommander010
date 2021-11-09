@@ -33,14 +33,14 @@ export default function Button({
     <Component
       href={href}
       className={clsx(
-        'duration-150 transition uppercase font-medium',
+        'duration-150 transition uppercase font-semibold',
         {
           'bg-base-red border-none text-white hover:bg-opacity-90':
             !disabled && variant === 'primary',
           'bg-transparent border-1 text-white': variant === 'secondary',
           'bg-transparent border-none text-white float-left mb-5':
             variant === 'link',
-          'font-bold text-lg': size === 'medium',
+          'text-lg': size === 'medium',
           'px-10 py-4': size === 'medium' && !disablePadding,
           'px-6 py-2': size === 'small' && !disablePadding,
           'bg-base-gray-medium cursor-not-allowed text-base-gray-light opacity-50 focus:ring-secondary':
