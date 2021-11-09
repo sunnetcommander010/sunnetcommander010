@@ -24,13 +24,19 @@ export default function HeadTag({ pageDescription, pageTitle }: HeadTagProps) {
       <link rel="apple-touch-icon" href="/favicon-180.png" />
       <link rel="manifest" href="/manifest.json" />
 
-      {/* Base Fonts */}
+      {/* Preload fonts */}
+      <link as="font" href="/fonts/Larsseit/Larsseit.ttf" rel="preload" />
       <link
-        as="style"
+        as="font"
+        href="/fonts/Larsseit/Larsseit-Medium.ttf"
         rel="preload"
-        href="https://fonts.cdnfonts.com/css/inter"
       />
-      <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet" />
+      <link as="font" href="/fonts/Larsseit/Larsseit-Bold.ttf" rel="preload" />
+      <link
+        as="font"
+        href="/fonts/Larsseit/Larsseit-ExtraBold.ttf"
+        rel="preload"
+      />
     </Head>
   )
 }
