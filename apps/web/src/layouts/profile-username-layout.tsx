@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import AppFooterBottomNav from '@/components/app-footer/sections/app-footer-bottom-nav'
+import AppFooter from '@/components/app-footer/app-footer'
 import AppHeader from '@/components/app-header/app-header'
 import HeadTag from '@/components/head-tag/head-tag'
 
@@ -28,7 +28,7 @@ export default function ProfileLayout({
       </div>
 
       <div className="pb-8 text-white bg-black">
-        <AppFooterBottomNav />
+        <AppFooter />
       </div>
     </>
   )
