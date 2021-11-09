@@ -6,5 +6,9 @@ export type ExternalLinkProps = DetailedHTMLProps<
 >
 
 export default function ExternalLink({ children, ...rest }: ExternalLinkProps) {
-  return <a {...rest}>{children}</a>
+  return (
+    <a rel="noopener noreferrer" {...rest}>
+      {children}
+    </a>
+  )
 }
