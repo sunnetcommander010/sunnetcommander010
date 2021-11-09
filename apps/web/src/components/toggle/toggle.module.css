@@ -38,7 +38,7 @@
 }
 
 .toggleNotEnabled.toggleDark {
-  @apply bg-gray-200;
+  @apply bg-gray-500;
 }
 
 .toggleEnabled.toggleLight {

@@ -1,8 +1,5 @@
 .root {
-  @apply relative block text-black;
-}
-.root.invert {
-  @apply text-white;
+  @apply relative block;
 }
 
 .labelContainer {
@@ -22,7 +19,10 @@
 }
 
 .selectContainer {
-  @apply relative z-20;
+  @apply relative z-20 text-black;
+}
+.root.invert .selectContainer {
+  @apply text-white;
 }
 
 .selectButton {
