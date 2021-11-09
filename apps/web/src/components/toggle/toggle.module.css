@@ -33,20 +33,12 @@
   @apply w-1/2 mt-1 text-sm font-light text-right text-base-errorRed;
 }
 
-.toggleEnabled.toggleDark {
+.toggleEnabled {
   @apply bg-base-red;
 }
 
-.toggleNotEnabled.toggleDark {
+.toggleNotEnabled {
   @apply bg-gray-500;
-}
-
-.toggleEnabled.toggleLight {
-  @apply bg-gray-500;
-}
-
-.toggleNotEnabled.toggleLight {
-  @apply bg-gray-200;
 }
 
 .inputDisabled {
