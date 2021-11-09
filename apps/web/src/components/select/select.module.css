@@ -70,5 +70,5 @@
 }
 
 .selectOptionSelected {
-  @apply bg-opacity-50 bg-base-red;
+  @apply bg-opacity-75 bg-base-red;
 }
