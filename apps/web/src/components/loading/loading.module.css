@@ -13,19 +13,19 @@
 
 .svgCorner:first-child,
 .svgCircle:first-child {
-  @apply stroke-current text-base-red;
+  @apply text-white stroke-current;
 }
 
 .svgCorner:last-child,
 .svgCircle:last-child {
-  @apply stroke-current text-base-gray-border;
+  @apply stroke-current text-base-red;
 }
 
 .svgCircle {
 }
 
 .loadingText {
-  @apply mt-4 text-base-gray-medium text-center;
+  @apply mt-4 tracking-wide text-center uppercase text-base-gray-text;
 }
 
 .primaryLoadingText {
