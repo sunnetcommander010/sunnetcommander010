@@ -3,7 +3,7 @@
 }
 
 .primary {
-  @apply bg-base-red hover:bg-opacity-60;
+  @apply bg-base-red hover:bg-base-darkred;
 }
 
 .secondary {

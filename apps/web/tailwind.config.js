@@ -34,6 +34,7 @@ module.exports = {
         base: {
           errorRed: '#FF0000',
           red: '#FF0000',
+          darkred: 'darkred',
           green: '#02FBC2',
           priceGreen: '#33C500',
           gray: {

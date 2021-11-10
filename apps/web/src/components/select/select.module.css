@@ -57,6 +57,7 @@
   @apply absolute w-full py-1 mt-1 overflow-auto text-sm bg-white shadow-md max-h-60;
   box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
 }
+
 .root.invert .selectOptions {
   @apply bg-black;
 }
