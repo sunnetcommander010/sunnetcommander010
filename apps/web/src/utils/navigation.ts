@@ -30,5 +30,5 @@ export const getSocialNavItems = (t: Translate) => [
 
 export const getLegalNavItems = (t: Translate) => [
   // { href: '#', label: t('common:nav.legal.Terms Of Service') },
-  { href: '', label: t('common:nav.legal.copyright') },
+  // { href: '', label: t('common:nav.legal.copyright') },
 ]
