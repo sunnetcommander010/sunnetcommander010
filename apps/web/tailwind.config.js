@@ -32,7 +32,7 @@ module.exports = {
       },
       colors: {
         base: {
-          errorRed: '#FF0000',
+          errorRed: '#FF7777',
           red: '#FF0000',
           darkred: 'darkred',
           green: '#02FBC2',
