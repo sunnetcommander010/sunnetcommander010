@@ -24,7 +24,7 @@ export default function Tabs({ activeTab, tabs }: TabsProps) {
             href={href}
             key={label}
           >
-            {label}
+            <span className={css.label}>{label}</span>
           </AppLink>
         ))}
       </div>
