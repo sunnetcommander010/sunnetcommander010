@@ -17,19 +17,15 @@ export default function NoCollectiblesContent({
   return (
     <div className={css.root}>
       <div className={css.gridContainer}>
-        {Array.from({ length: 3 })
-          .fill('x')
-          .map((_, index) => (
-            <CollectiblePlaceholder key={String(index)} />
-          ))}
+        <CollectiblePlaceholder />
+        <CollectiblePlaceholder />
+        <CollectiblePlaceholder />
+        <Heading className={css.heading} level={3}>
+          {t('collection:viewer.startCollection')}
+        </Heading>
       </div>
-
-      <Heading className={css.heading} level={3}>
-        {t('collection:viewer.startCollection')}
-      </Heading>
-
       <Button onClick={handleRedirect}>
-        {t('collection:viewer.Find Something Cool')}
+        {t('collection:viewer.Browse our latest drops')}
       </Button>
     </div>
   )

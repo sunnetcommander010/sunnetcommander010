@@ -141,7 +141,7 @@ export default function MyShowcaseTemplate({
       {collectiblesTotal === 0 && (
         <div className={css.bottomCtaWrapper}>
           <Button onClick={handleRedirectBrands}>
-            {t('collection:viewer.Find Something Cool')}
+            {t('collection:viewer.Browse our latest drops')}
           </Button>
         </div>
       )}

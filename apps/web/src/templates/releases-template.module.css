@@ -1,6 +1,6 @@
 .root {
   /* Base */
-  @apply px-5;
+  @apply pt-4 md:pt-0;
 }
 
 .selectWrapper {
