@@ -1,6 +1,6 @@
 .root {
   /* Tablet + */
-  @apply md:border-black border-1;
+  @apply md:border-black;
 }
 
 .header {
