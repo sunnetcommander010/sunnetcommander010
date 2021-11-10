@@ -1,5 +1,6 @@
 import {
   CirclePaymentSourceType,
+  CreateBankAccount,
   CreateCard,
   CreatePayment,
   DEFAULT_CURRENCY,
@@ -147,6 +148,28 @@ export default class PaymentsService {
 
     // If card was not saved, return the identifier
     return { externalId: card.externalId, status: card.status }
+  }
+
+  async createBankAccount(bankDetails: CreateBankAccount, trx?: Transaction) {
+    const user = await UserAccountModel.query(trx)
+      .where('externalId', bankDetails.ownerExternalId)
+      .first()
+    userInvariant(user, 'no user found', 404)
+
+    // Create bank account using Circle API
+    const bankAccount = await this.circle.createBankAccount({
+      idempotencyKey: bankDetails.idempotencyKey,
+      accountNumber: bankDetails.accountNumber,
+      routingNumber: bankDetails.routingNumber,
+      billingDetails: bankDetails.billingDetails,
+      bankAddress: bankDetails.bankAddress,
+    })
+
+    if (!bankAccount) {
+      return null
+    }
+
+    return { externalId: bankAccount.externalId, status: bankAccount.status }
   }
 
   async updateCard(

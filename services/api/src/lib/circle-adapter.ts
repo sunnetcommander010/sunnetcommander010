@@ -1,7 +1,9 @@
 import {
+  CircleBankAccount,
   CircleCard,
   CircleCardStatus,
   CircleCardVerification,
+  CircleCreateBankAccount,
   CircleCreateCard,
   CircleCreatePayment,
   CirclePaymentResponse,
@@ -16,6 +18,7 @@ import {
   PaymentCardStatus,
   PaymentStatus,
   PublicKey,
+  ToPaymentBankAccountBase,
   ToPaymentBase,
   ToPaymentCardBase,
 } from '@algomart/schemas'
@@ -32,6 +35,15 @@ function toPublicKeyBase(data: CirclePublicKey): PublicKey {
   return {
     keyId: data.keyId,
     publicKey: data.publicKey,
+  }
+}
+
+function toBankAccountBase(
+  response: CircleBankAccount
+): ToPaymentBankAccountBase {
+  return {
+    externalId: response.id,
+    status: response.status,
   }
 }
 
@@ -156,6 +168,23 @@ export default class CircleAdapter {
     }
 
     this.logger.error({ response }, 'Failed to create payment card')
+    return null
+  }
+
+  async createBankAccount(
+    request: CircleCreateBankAccount
+  ): Promise<ToPaymentBankAccountBase | null> {
+    const response = await this.http
+      .post('v1/banks/wires', {
+        json: request,
+      })
+      .json<CircleResponse<CircleBankAccount>>()
+
+    if (isCircleSuccessResponse(response)) {
+      return toBankAccountBase(response.data)
+    }
+
+    this.logger.error({ response }, 'Failed to create bank account')
     return null
   }
 

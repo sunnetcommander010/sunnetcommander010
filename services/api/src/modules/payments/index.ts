@@ -1,6 +1,8 @@
 import {
   CardIdSchema,
+  CreateBankAccountSchema,
   CreateCardSchema,
+  CreatePaymentBankAccountSchema,
   CreatePaymentCardSchema,
   CreatePaymentSchema,
   CurrencySchema,
@@ -17,6 +19,7 @@ import { FastifyInstance } from 'fastify'
 import fastifyBearerAuth from 'fastify-bearer-auth'
 
 import {
+  createBankAccount,
   createCard,
   createPayment,
   getCards,
@@ -103,6 +106,21 @@ export async function paymentRoutes(app: FastifyInstance) {
         },
       },
       getCardStatus
+    )
+    .post(
+      '/bank-accounts',
+      {
+        transact: true,
+        schema: {
+          tags,
+          security,
+          body: CreateBankAccountSchema,
+          response: {
+            201: CreatePaymentBankAccountSchema,
+          },
+        },
+      },
+      createBankAccount
     )
     .post(
       '/cards',

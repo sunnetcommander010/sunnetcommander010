@@ -1,5 +1,6 @@
 import {
   CardId,
+  CreateBankAccount,
   CreateCard,
   CreatePayment,
   OwnerExternalId,
@@ -55,6 +56,26 @@ export async function getCards(
     reply.send(cards)
   } else {
     reply.notFound()
+  }
+}
+
+export async function createBankAccount(
+  request: FastifyRequest<{
+    Body: CreateBankAccount
+  }>,
+  reply: FastifyReply
+) {
+  const paymentService = request
+    .getContainer()
+    .get<PaymentsService>(PaymentsService.name)
+  const bankAccount = await paymentService.createBankAccount(
+    request.body,
+    request.transaction
+  )
+  if (bankAccount) {
+    reply.status(201).send(bankAccount)
+  } else {
+    reply.badRequest('Unable to create bank account')
   }
 }
 
