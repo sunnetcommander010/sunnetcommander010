@@ -19,6 +19,7 @@ export enum EventEntityType {
   Notification = 'notification',
   Pack = 'pack',
   Payment = 'payment',
+  PaymentBankAccount = 'payment-bank-account',
   PaymentCard = 'payment-card',
   UserAccount = 'user-account',
 }
