@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation'
 import css from './home-template.module.css'
 
 import AppLink from '@/components/app-link/app-link'
-import NotableCollectible from '@/components/collectibles/collectible-notable'
+// import NotableCollectible from '@/components/collectibles/collectible-notable'
 import FeaturedPack from '@/components/featured-pack/featured-pack'
 import Grid from '@/components/grid/grid'
 import Heading from '@/components/heading'
@@ -21,7 +21,7 @@ export interface HomeTemplateProps {
 export default function HomeTemplate({
   featuredPack,
   upcomingPacks,
-  notableCollectibles,
+  // notableCollectibles,
   onClickFeatured,
 }: HomeTemplateProps) {
   const { t } = useTranslation()
@@ -56,7 +56,7 @@ export default function HomeTemplate({
         </>
       ) : null}
 
-      {notableCollectibles.length > 0 ? (
+      {/* {notableCollectibles.length > 0 ? (
         <>
           <Heading level={2} size={1} className={css.sectionTitle}>
             {t('release:Notable Collectibles')}
@@ -73,7 +73,7 @@ export default function HomeTemplate({
             </Grid>
           </div>
         </>
-      ) : null}
+      ) : null} */}
     </>
   )
 }
