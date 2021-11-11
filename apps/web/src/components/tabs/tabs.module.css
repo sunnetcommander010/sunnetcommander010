@@ -14,7 +14,7 @@
 
 .tab {
   /* Base */
-  @apply relative w-full px-4 py-4 font-bold text-center no-underline transition duration-300 border-none;
+  @apply relative w-full px-4 py-4 font-bold text-center transition duration-300 border-none;
   /* Tablet + */
   @apply md:px-0 md:w-40;
 }
