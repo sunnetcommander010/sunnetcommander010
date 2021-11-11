@@ -1,7 +1,3 @@
-.root {
-  @apply rounded-sm shadow-large;
-}
-
 .root + .root {
   @apply mt-4;
 }
@@ -27,7 +23,7 @@
 }
 
 .filterHeader .badge {
-  @apply p-1 text-xs text-white rounded-sm bg-base-red;
+  @apply p-1 px-2 text-xs font-semibold text-white bg-base-gray-medium;
 }
 
 .filterItem {

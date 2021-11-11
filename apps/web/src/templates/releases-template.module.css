@@ -9,6 +9,12 @@
   /* Tablet + */
   @apply md:mb-12;
 }
+
+.selectWrapper button,
+.selectWrapper li {
+  @apply uppercase;
+}
+
 .selectWrapper::before {
   content: '';
   @apply absolute -bottom-0.5 left-0 w-1/3 h-4;
@@ -21,7 +27,7 @@
 }
 
 .selectWrapper label {
-  @apply mx-auto transform translate-y-1/2 shadow-large;
+  @apply mx-auto transform translate-y-1/2;
   max-width: 175px;
 }
 
