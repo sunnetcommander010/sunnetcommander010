@@ -208,7 +208,6 @@ export default class PaymentsService {
       return null
     }
 
-    // Circle may return the same card ID if there's duplicate info
     const newBankAccount = await PaymentBankAccountModel.query(trx)
       .insert({
         ...bankAccount,
