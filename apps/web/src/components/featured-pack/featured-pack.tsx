@@ -11,6 +11,7 @@ import Button from '@/components/button'
 import Counter from '@/components/counter/counter'
 import Heading from '@/components/heading'
 import { useLocale } from '@/hooks/useLocale'
+import { cmsImageLoader } from '@/utils/cms-image-loader'
 import { formatCurrency } from '@/utils/format-currency'
 
 export interface FeaturedPackProps {
@@ -76,7 +77,9 @@ export default function HomeTemplate({
             src={featuredPack.image}
             width={500}
             height={620}
+            loader={cmsImageLoader}
             layout="responsive"
+            objectFit="cover"
           />
         </div>
 

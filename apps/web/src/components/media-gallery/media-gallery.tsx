@@ -6,6 +6,8 @@ import { useState } from 'react'
 
 import css from './media-gallery.module.css'
 
+import { cmsImageLoader } from '@/utils/cms-image-loader'
+
 enum Direction {
   NEXT = 'NEXT',
   PREV = 'PREV',
@@ -75,8 +77,11 @@ export default function MediaGallery({ media }: MediaGalleryProps) {
             <Image
               alt={t('common:statuses.Selected Image')}
               className={css.contain}
-              layout="fill"
+              objectFit="cover"
               src={currentMedia}
+              loader={cmsImageLoader}
+              width={700}
+              height={868}
             />
           </div>
         </div>

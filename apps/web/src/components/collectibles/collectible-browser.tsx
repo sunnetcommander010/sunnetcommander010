@@ -93,7 +93,7 @@ export default function CollectibleBrowser({
             width={700}
             height={700}
             layout="responsive"
-            objectFit="contain"
+            objectFit="cover"
           />
         )}
         {collectible.previewVideo && (
@@ -127,7 +127,7 @@ export default function CollectibleBrowser({
                   width={700}
                   height={700}
                   layout="responsive"
-                  objectFit="contain"
+                  objectFit="cover"
                 />
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function CollectibleBrowser({
                 loader={cmsImageLoader}
                 width={70}
                 height={70}
-                objectFit="contain"
+                objectFit="cover"
                 layout="responsive"
               />
             </button>
