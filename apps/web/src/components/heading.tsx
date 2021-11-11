@@ -24,7 +24,7 @@ export default function Heading({
       className: clsx(
         'uppercase',
         {
-          'font-bold text-3xl': size === 1,
+          'font-semibold text-3xl': size === 1,
           'text-xl': size === 2,
           'text-lg': size === 3,
           'text-md': size === 4,
