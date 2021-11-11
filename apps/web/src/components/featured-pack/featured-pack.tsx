@@ -74,8 +74,8 @@ export default function HomeTemplate({
         <div className={css.featuredImage}>
           <Image
             src={featuredPack.image}
-            width={512}
-            height={512}
+            width={500}
+            height={620}
             layout="responsive"
           />
         </div>
