@@ -19,7 +19,7 @@
 }
 
 .metadataValue {
-  @apply text-xl font-bold;
+  @apply text-base font-semibold;
 }
 
 .active {

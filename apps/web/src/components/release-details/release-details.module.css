@@ -8,5 +8,5 @@
 }
 
 .title {
-  @apply p-6 text-2xl font-bold text-center;
+  @apply p-6 text-3xl font-bold text-center;
 }
