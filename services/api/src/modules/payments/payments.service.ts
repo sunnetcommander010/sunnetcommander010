@@ -92,12 +92,12 @@ export default class PaymentsService {
   }
 
   async getBankAccountStatus(bankAccountId: string) {
-    // Find card in database
+    // Find bank account in database
     const foundBankAccount = await PaymentBankAccountModel.query().findById(
       bankAccountId
     )
 
-    // If a card was found, use the external ID. Otherwise check by passed in ID.
+    // If a bank account was found, use the external ID. Otherwise check by passed in ID.
     userInvariant(foundBankAccount, 'bank account is not available', 404)
     const externalId = foundBankAccount.externalId
 
@@ -111,12 +111,12 @@ export default class PaymentsService {
   }
 
   async getWireTransferInstructions(bankAccountId: string) {
-    // Find card in database
+    // Find bank account in database
     const foundBankAccount = await PaymentBankAccountModel.query().findById(
       bankAccountId
     )
 
-    // If a card was found, use the external ID. Otherwise check by passed in ID.
+    // If a bank account was found, use the external ID. Otherwise check by passed in ID.
     userInvariant(foundBankAccount, 'bank account is not available', 404)
     const externalId = foundBankAccount.externalId
 
