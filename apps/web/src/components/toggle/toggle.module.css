@@ -1,5 +1,5 @@
 .innerInput {
-  @apply inline-block w-4 h-4 transform bg-white rounded-full shadow-lg;
+  @apply inline-block w-4 h-4 transition-all bg-white rounded-full shadow-lg transform-gpu;
 }
 
 .innerInputEnabled {
@@ -10,8 +10,15 @@
   @apply translate-x-1;
 }
 
+.toggleEnabled:active .innerInput {
+  @apply translate-x-4;
+}
+.toggleNotEnabled:active .innerInput {
+  @apply translate-x-3;
+}
+
 .input {
-  @apply relative inline-flex items-center h-6 rounded-full w-11;
+  @apply relative inline-flex items-center h-6 transition-all rounded-full w-11;
 }
 
 .labelContainer {
@@ -36,9 +43,15 @@
 .toggleEnabled {
   @apply bg-base-red;
 }
+.toggleEnabled:hover {
+  @apply bg-base-darkred;
+}
 
 .toggleNotEnabled {
   @apply bg-gray-500;
+}
+.toggleNotEnabled:hover {
+  @apply bg-base-darkred;
 }
 
 .inputDisabled {
