@@ -20,7 +20,6 @@ export interface MyCollectiblesTemplateProps {
   activeAsset: CollectibleWithDetails | null
   assets: CollectibleWithDetails[]
   currentPage: number
-  handleRedirectBrands: () => void
   handlePageChange: (pageNumber: number) => void
   handleSortChange: (option: SelectOption) => void
   isViewerActive: boolean
@@ -34,7 +33,6 @@ export default function MyCollectiblesTemplate({
   activeAsset,
   assets,
   currentPage,
-  handleRedirectBrands,
   handlePageChange,
   handleSortChange,
   isViewerActive,
@@ -104,7 +102,7 @@ export default function MyCollectiblesTemplate({
           </div>
         </>
       ) : (
-        <NoCollectiblesContent handleRedirect={handleRedirectBrands} />
+        <NoCollectiblesContent />
       )}
     </>
   )
