@@ -47,6 +47,10 @@
   @apply text-base-gray-text;
 }
 
+.featuredBody p {
+  @apply mb-3;
+}
+
 .featuredAvailability {
   /* Base */
   @apply mt-4 text-base-gray-medium;

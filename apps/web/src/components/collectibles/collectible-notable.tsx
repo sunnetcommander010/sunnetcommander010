@@ -20,7 +20,7 @@ export default function NotableCollectible({
           height={250}
           layout="responsive"
           loader={cmsImageLoader}
-          objectFit="contain"
+          objectFit="cover"
           src={collectible.image}
           width={250}
         />
