@@ -208,6 +208,27 @@ export default class PaymentsService {
       return null
     }
 
+    // Circle may return the same card ID if there's duplicate info
+    const newBankAccount = await PaymentBankAccountModel.query(trx)
+      .insert({
+        ...bankAccount,
+        ownerId: user.id,
+      })
+      .onConflict('externalId')
+      .ignore()
+
+    if (!newBankAccount) {
+      return null
+    }
+
+    // Create events for bank account creation
+    await EventModel.query(trx).insert({
+      action: EventAction.Create,
+      entityType: EventEntityType.PaymentBankAccount,
+      entityId: newBankAccount.id,
+      userAccountId: user.id,
+    })
+
     return { externalId: bankAccount.externalId, status: bankAccount.status }
   }
 
