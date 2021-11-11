@@ -1,0 +1,7 @@
+.panel {
+  @apply p-8 bg-black;
+}
+
+.content {
+  @apply pt-6 mt-6 border-t-1 border-base-gray-border;
+}

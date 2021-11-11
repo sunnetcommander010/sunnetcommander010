@@ -110,14 +110,13 @@ export default function ClaimNFTModal({
               src={`${packTemplate.image}?fit=contain&height=140&width=140&quality=75`}
             />
           </div>
-          <Button
+          <button
             aria-label={t('common:actions.Close')}
             className={css.closeButton}
             onClick={() => handleClose(!open)}
-            variant="secondary"
           >
             {'\u2717'}
-          </Button>
+          </button>
         </header>
         <Heading level={2}>{packTemplate.title}</Heading>
 

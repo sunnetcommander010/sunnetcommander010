@@ -218,7 +218,6 @@ export default function PurchaseForm({
             </div>
             <Button
               className={css.differentCardLink}
-              disablePadding
               onClick={handleClearCard}
               size="small"
               variant="link"

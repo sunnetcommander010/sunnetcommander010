@@ -37,7 +37,7 @@ export default function HomeTemplate({
 
       {upcomingPacks.length > 0 ? (
         <>
-          <Heading level={2} size={1} bold className={css.sectionTitle}>
+          <Heading level={2} size={1} className={css.sectionTitle}>
             {t('release:Active & Upcoming Drops')}
           </Heading>
 
@@ -58,7 +58,7 @@ export default function HomeTemplate({
 
       {notableCollectibles.length > 0 ? (
         <>
-          <Heading level={2} size={1} bold className={css.sectionTitle}>
+          <Heading level={2} size={1} className={css.sectionTitle}>
             {t('release:Notable Collectibles')}
           </Heading>
 

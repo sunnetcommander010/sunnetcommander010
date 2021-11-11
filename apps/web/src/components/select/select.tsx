@@ -24,6 +24,7 @@ export interface SelectProps
   error?: string
   handleChange?(option: SelectOption): void
   helpText?: string
+  invert?: boolean
   label?: string
   options: SelectOption[]
   selectedValue?: SelectOption | null
@@ -36,6 +37,7 @@ export default function Select({
   handleChange,
   helpText,
   id,
+  invert,
   label,
   options,
   selectedValue,
@@ -52,7 +54,11 @@ export default function Select({
   }
 
   return (
-    <label className={css.root} data-input="select" htmlFor={id}>
+    <label
+      className={clsx(css.root, { [css.invert]: invert })}
+      data-input="select"
+      htmlFor={id}
+    >
       <div className={css.labelContainer}>
         {label && <span className={css.label}>{label}</span>}
         {error && <span className={css.errorText}>{error}</span>}

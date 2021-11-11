@@ -2,9 +2,9 @@
   @apply text-center;
 }
 .gridContainer {
-  @apply grid grid-cols-3 gap-5 mx-20 my-10;
+  @apply relative grid grid-cols-3 gap-5 mx-4 my-10;
+  @apply md:mx-20;
 }
-
 .heading {
-  @apply font-bold mb-10 mt-5 mx-20 text-center text-base-gray-text;
+  @apply absolute left-0 right-0 mb-10 -mt-3 font-bold leading-5 tracking-wider text-center top-1/2 drop-shadow;
 }

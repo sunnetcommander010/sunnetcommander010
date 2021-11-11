@@ -2,7 +2,7 @@
   /* Base */
   @apply fixed top-0 z-20 w-full text-white bg-black;
   /* Tablet + */
-  @apply md:relative md:shadow-none;
+  @apply md:relative;
 }
 
 .rootMobileVisible {

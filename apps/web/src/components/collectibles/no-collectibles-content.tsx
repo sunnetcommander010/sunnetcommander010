@@ -5,31 +5,30 @@ import css from './no-collectibles-content.module.css'
 import Button from '@/components/button'
 import CollectiblePlaceholder from '@/components/collectibles/collectible-placeholder'
 import Heading from '@/components/heading'
+import { urls } from '@/utils/urls'
 
 export interface NoCollectiblesContentProps {
-  handleRedirect(): void
+  text?: string
 }
 
 export default function NoCollectiblesContent({
-  handleRedirect,
+  text,
 }: NoCollectiblesContentProps) {
   const { t } = useTranslation()
+  const message = text ?? t('collection:viewer.startCollection')
+
   return (
     <div className={css.root}>
       <div className={css.gridContainer}>
-        {Array.from({ length: 3 })
-          .fill('x')
-          .map((_, index) => (
-            <CollectiblePlaceholder key={String(index)} />
-          ))}
+        <CollectiblePlaceholder />
+        <CollectiblePlaceholder />
+        <CollectiblePlaceholder />
+        <Heading className={css.heading} level={3}>
+          {message}
+        </Heading>
       </div>
-
-      <Heading className={css.heading} level={3}>
-        {t('collection:viewer.startCollection')}
-      </Heading>
-
-      <Button onClick={handleRedirect}>
-        {t('collection:viewer.Find Something Cool')}
+      <Button href={urls.releases}>
+        {t('collection:viewer.Browse our latest drops')}
       </Button>
     </div>
   )

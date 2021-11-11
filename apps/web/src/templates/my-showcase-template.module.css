@@ -3,7 +3,7 @@
 }
 
 .ownedCollectiblesHeading {
-  @apply pb-2 mt-8 mb-6 text-center border-b border-base-gray-border md:mt-14;
+  @apply pb-2 mx-4 mt-4 mb-6 text-center border-b border-base-gray-border md:mt-10;
 }
 
 .notification {
@@ -23,5 +23,5 @@
 }
 
 .bottomCtaWrapper {
-  @apply text-center bg-white;
+  @apply text-center;
 }

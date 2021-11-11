@@ -54,7 +54,6 @@ export default function MyProfilePaymentMethodsTemplate({
                         label={t('forms:fields.defaultCard.label')}
                         name="defaultCard"
                         onChange={() => updateCard(id, !defaultCard)}
-                        styleMode="dark"
                       />
                       <Button
                         className={css.removeButton}

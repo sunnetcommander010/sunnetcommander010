@@ -169,7 +169,7 @@ export function ProfileImage({
           ) : (
             <div {...getRootProps()}>
               <input {...getInputProps()} />
-              <Button size="small" type="button">
+              <Button size="small" variant="secondary">
                 {t('common:actions.Select Image')}
               </Button>
             </div>

@@ -1,0 +1,47 @@
+.button {
+  @apply font-semibold tracking-wide text-white uppercase transition duration-150 whitespace-nowrap;
+}
+
+.primary {
+  @apply bg-base-red hover:bg-base-darkred;
+}
+
+.secondary {
+  @apply bg-transparent hover:text-base-red;
+  box-shadow: inset 0 0 0 1px #fff;
+}
+.secondary:hover {
+  box-shadow: inset 0 0 0 1px red;
+}
+
+.link {
+  @apply bg-transparent hover:text-base-red;
+}
+
+.medium {
+  @apply px-10 py-4 text-lg;
+}
+
+.small {
+  @apply px-6 py-2;
+}
+
+.disabled {
+  @apply pointer-events-none;
+}
+
+.primary.disabled {
+  @apply opacity-50 bg-base-gray-medium text-base-gray-light;
+}
+
+.secondary.disabled {
+  @apply opacity-20;
+}
+
+.link.disabled {
+  @apply opacity-20;
+}
+
+.fullWidth {
+  @apply block w-full;
+}
