@@ -1,5 +1,5 @@
 .metadata {
-  @apply bg-white text-center;
+  @apply text-center bg-black;
 }
 
 .metadataGrid {
@@ -15,15 +15,15 @@
 }
 
 .metadataLabel {
-  @apply capitalize text-base-gray-text text-sm;
+  @apply text-sm capitalize text-base-gray-text;
 }
 
 .metadataValue {
-  @apply font-bold text-xl;
+  @apply text-xl font-bold;
 }
 
 .active {
-  @apply text-base-gray-dark;
+  @apply text-white;
 }
 
 .completeSuccess {

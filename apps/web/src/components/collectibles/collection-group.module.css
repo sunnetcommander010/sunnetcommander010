@@ -1,5 +1,5 @@
 .imageWrapper {
-  @apply overflow-hidden rounded-xl shadow-large;
+  @apply overflow-hidden;
 }
 
 .image {
@@ -8,9 +8,9 @@
 }
 
 .textTitle {
-  @apply mt-4 text-center text-xl;
+  @apply mt-4 text-xl text-center;
 }
 
 .textBrand {
-  @apply text-center text-base-gray-medium text-sm;
+  @apply text-sm text-center text-base-gray-medium;
 }

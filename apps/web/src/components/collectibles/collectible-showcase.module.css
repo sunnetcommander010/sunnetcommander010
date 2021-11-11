@@ -7,7 +7,7 @@
 }
 
 .rootFilled {
-  @apply text-white bg-base-gray-dark;
+  @apply border-t-8 border-b-8 border-base-gray-border;
 }
 
 .container {
@@ -51,7 +51,7 @@
 
 .linkWrapper {
   /* Base */
-  @apply border-b border-gray-800 py-5 text-center;
+  @apply py-5 text-center border-b border-gray-800;
   /* Tablet + */
   @apply md:text-left md:py-0 md:border-none;
 }

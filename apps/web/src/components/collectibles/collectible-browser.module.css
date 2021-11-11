@@ -57,12 +57,12 @@
 
 .flipButton {
   @apply block mx-auto;
-  @apply text-sm underline text-gray-400 hover:text-base-green;
+  @apply text-sm text-gray-400 underline hover:text-base-green;
 }
 
 .flipBox {
   @apply w-full;
-  aspect-ratio: 1;
+  aspect-ratio: 25/31;
   perspective: 1000px;
 }
 

@@ -7,22 +7,34 @@
 
 .tabsContainer {
   /* Base */
-  @apply relative flex w-full mx-5 overflow-hidden bg-white rounded-lg shadow-large;
+  @apply relative flex w-full mx-5 border-base-gray-border;
   /* Tablet + */
   @apply md:w-auto;
 }
 
 .tab {
   /* Base */
-  @apply w-full px-4 py-4 font-bold text-center no-underline transition duration-300 border-none text-base-gray-dark;
-  /* Base: Focus and Hover */
-  @apply focus:outline-none focus:text-opacity-70 hover:text-opacity-70;
-  /* Base: First and Last */
-  @apply first:rounded-l-lg last:rounded-r-lg;
+  @apply relative w-full px-4 py-4 font-bold text-center transition duration-300 border-none;
   /* Tablet + */
   @apply md:px-0 md:w-40;
 }
 
+.label {
+  @apply relative;
+}
+
+.tab::before {
+  content: '';
+  @apply absolute top-0 bottom-0 left-0 right-0 transition-all ease-in transform opacity-0 bg-base-darkred;
+}
+
 .tabActive {
-  @apply bg-base-red;
+  pointer-events: none;
+}
+.tabActive::before {
+  @apply skew-x-6 skew-y-3 opacity-100 bg-base-red -rotate-2;
+}
+
+.tab:hover::before {
+  @apply skew-x-6 skew-y-3 opacity-100 -rotate-2;
 }

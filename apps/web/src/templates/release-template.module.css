@@ -1,5 +1,5 @@
 .root {
-  @apply max-w-700 mr-auto ml-auto;
+  @apply ml-auto mr-auto max-w-700;
 }
 
 .notification {
@@ -7,7 +7,7 @@
 }
 
 .content {
-  @apply shadow-large;
+  @apply bg-black shadow-large;
 }
 
 .alert p {

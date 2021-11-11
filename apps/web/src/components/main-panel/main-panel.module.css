@@ -9,7 +9,7 @@
   /* Base */
   @apply mx-auto mb-16 max-w-wrapper;
   /* Tablet + */
-  @apply md:mt-16;
+  @apply md:mt-16 md:px-4;
 }
 
 .withPadding {

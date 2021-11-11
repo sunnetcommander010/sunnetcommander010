@@ -6,8 +6,8 @@ import css from './my-showcase-template.module.css'
 
 import Button from '@/components/button'
 import CollectibleItem from '@/components/collectibles/collectible-item'
-import CollectiblePlaceholder from '@/components/collectibles/collectible-placeholder'
 import CollectibleShowcase from '@/components/collectibles/collectible-showcase'
+import NoCollectiblesContent from '@/components/collectibles/no-collectibles-content'
 import Grid from '@/components/grid/grid'
 import Heading from '@/components/heading'
 import Notification from '@/components/notification/notification'
@@ -20,7 +20,6 @@ export interface MyShowcaseTemplateProps {
   addCollectible: (collectibleId: string) => void
   collectibles: CollectibleWithDetails[]
   collectiblesTotal: number
-  handleRedirectBrands: () => void
   page: number
   pageSize: number
   showcaseCollectibles: CollectibleWithDetails[]
@@ -34,7 +33,6 @@ export default function MyShowcaseTemplate({
   addCollectible,
   collectibles,
   collectiblesTotal,
-  handleRedirectBrands,
   page,
   pageSize,
   showcaseCollectibles,
@@ -118,14 +116,9 @@ export default function MyShowcaseTemplate({
               ))}
             </Grid>
           ) : (
-            <div className={css.noCollectiblesWrapper}>
-              <CollectiblePlaceholder
-                className={css.noCollectiblesPlaceholder}
-              />
-              <Heading className={css.noCollectiblesHeading} level={3}>
-                {t('collection:viewer.noCollectibles')}
-              </Heading>
-            </div>
+            <NoCollectiblesContent
+              text={t('collection:viewer.noCollectibles')}
+            />
           )}
         </div>
 
@@ -136,15 +129,6 @@ export default function MyShowcaseTemplate({
           total={collectiblesTotal}
         />
       </section>
-
-      {/* Bottom CTA */}
-      {collectiblesTotal === 0 && (
-        <div className={css.bottomCtaWrapper}>
-          <Button onClick={handleRedirectBrands}>
-            {t('collection:viewer.Find Something Cool')}
-          </Button>
-        </div>
-      )}
     </>
   )
 }

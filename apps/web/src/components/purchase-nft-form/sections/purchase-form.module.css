@@ -40,7 +40,7 @@
 }
 
 .differentCardLink {
-  @apply text-sm underline text-base-gray-medium;
+  @apply p-0 text-sm underline text-base-gray-text;
 }
 
 .priceContainer {

@@ -25,7 +25,7 @@
 
 .bottomNavLinks {
   /* Base */
-  @apply block mb-4 text-sm outline-none text-base-gray-medium focus:text-white hover:text-white;
+  @apply block mb-4 text-sm uppercase outline-none text-base-gray-medium focus:text-white hover:text-white;
   /* Tablet + */
   @apply md:inline md:mb-0;
 }
