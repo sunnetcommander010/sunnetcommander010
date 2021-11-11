@@ -132,6 +132,13 @@ export enum PaymentCardStatus {
   Inactive = 'inactive',
 }
 
+export enum PaymentBankAccountStatus {
+  Pending = 'pending',
+  Failed = 'failed',
+  Complete = 'complete',
+  Inactive = 'inactive',
+}
+
 export enum CirclePaymentSourceType {
   card = 'card',
   ach = 'ach',
@@ -141,7 +148,7 @@ export enum CirclePaymentSourceType {
 
 const ToPaymentBankAccountBaseSchema = Type.Object({
   externalId: Type.String({ format: 'uuid' }),
-  status: Type.Enum(CircleBankAccountStatus),
+  status: Type.Enum(PaymentBankAccountStatus),
 })
 
 const ToPaymentCardBaseSchema = Type.Object({
@@ -166,6 +173,10 @@ const PaymentBaseSchema = Type.Object({
   payerId: Type.String(),
   paymentCardId: Type.Optional(Nullable(Type.String({ format: 'uuid' }))),
 })
+
+const PaymentBankAccountBaseSchema = Type.Intersect([
+  ToPaymentBankAccountBaseSchema,
+])
 
 const PaymentCardBaseSchema = Type.Intersect([
   ToPaymentCardBaseSchema,
@@ -397,6 +408,30 @@ export const CurrencySchema = Type.Object({
   exponent: Type.Number(),
 })
 
+export const GetPaymentBankAccountInstructionsSchema = Type.Object({
+  trackingRef: Type.String(),
+  beneficiary: Type.Object({
+    name: Type.String(),
+    address1: Type.String(),
+    address2: Type.String(),
+  }),
+  beneficiaryBank: Type.Object({
+    name: Type.Optional(Type.String()),
+    swiftCode: Type.Optional(Type.String()),
+    routingNumber: Type.String(),
+    accountNumber: Type.String(),
+    address: Type.Optional(Type.String()),
+    city: Type.Optional(Type.String()),
+    postalCode: Type.Optional(Type.String()),
+    country: Type.Optional(Type.String()),
+  }),
+  status: Type.Optional(Type.Enum(PaymentBankAccountStatus)),
+})
+
+export const GetPaymentBankAccountStatusSchema = Type.Object({
+  status: Type.Optional(Type.Enum(PaymentBankAccountStatus)),
+})
+
 export const GetPaymentCardStatusSchema = Type.Object({
   status: Type.Optional(Type.Enum(PaymentCardStatus)),
 })
@@ -416,6 +451,11 @@ export const PaymentCardSchema = Type.Intersect([
   PaymentCardBaseSchema,
 ])
 
+export const PaymentBankAccountSchema = Type.Intersect([
+  BaseSchema,
+  PaymentBankAccountBaseSchema,
+])
+
 export const PaymentCardsSchema = Type.Array(PaymentCardSchema)
 
 export const PaymentCardNoSaveSchema = Type.Object({
@@ -425,6 +465,10 @@ export const PaymentCardNoSaveSchema = Type.Object({
 
 export const CardIdSchema = Type.Object({
   cardId: Type.String({ format: 'uuid' }),
+})
+
+export const BankAccountIdSchema = Type.Object({
+  bankAccountId: Type.String({ format: 'uuid' }),
 })
 
 export const CreateCardSchema = Type.Intersect([
@@ -478,6 +522,7 @@ export const UpdatePaymentCardSchema = Type.Object({
 
 // Types
 
+export type BankAccountId = Simplify<Static<typeof BankAccountIdSchema>>
 export type CardId = Simplify<Static<typeof CardIdSchema>>
 export type CheckoutStatus =
   | 'passphrase'
@@ -524,6 +569,12 @@ export type CreateCard = Simplify<Static<typeof CreateCardSchema>>
 export type CreatePayment = Simplify<Static<typeof CreatePaymentSchema>>
 export type CreatePaymentCard = Simplify<Static<typeof CreatePaymentCardSchema>>
 export type Currency = Simplify<Static<typeof CurrencySchema>>
+export type GetPaymentBankAccountInstructions = Simplify<
+  Static<typeof GetPaymentBankAccountInstructionsSchema>
+>
+export type GetPaymentBankAccountStatus = Simplify<
+  Static<typeof GetPaymentBankAccountStatusSchema>
+>
 export type GetPaymentCardStatus = Simplify<
   Static<typeof GetPaymentCardStatusSchema>
 >

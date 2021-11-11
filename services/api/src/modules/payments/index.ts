@@ -1,4 +1,5 @@
 import {
+  BankAccountIdSchema,
   CardIdSchema,
   CreateBankAccountSchema,
   CreateCardSchema,
@@ -6,6 +7,8 @@ import {
   CreatePaymentCardSchema,
   CreatePaymentSchema,
   CurrencySchema,
+  GetPaymentBankAccountInstructionsSchema,
+  GetPaymentBankAccountStatusSchema,
   GetPaymentCardStatusSchema,
   OwnerExternalIdSchema,
   PaymentCardsSchema,
@@ -22,11 +25,13 @@ import {
   createBankAccount,
   createCard,
   createPayment,
+  getBankAccountStatus,
   getCards,
   getCardStatus,
   getCurrency,
   getPaymentById,
   getPublicKey,
+  getWireTransferInstructions,
   removeCard,
   updateCard,
 } from './payments.routes'
@@ -106,6 +111,34 @@ export async function paymentRoutes(app: FastifyInstance) {
         },
       },
       getCardStatus
+    )
+    .get(
+      '/bank-accounts/:bankAccountId/status',
+      {
+        schema: {
+          tags,
+          security,
+          params: BankAccountIdSchema,
+          response: {
+            200: GetPaymentBankAccountStatusSchema,
+          },
+        },
+      },
+      getBankAccountStatus
+    )
+    .get(
+      '/bank-accounts/:bankAccountId/instructions',
+      {
+        schema: {
+          tags,
+          security,
+          params: BankAccountIdSchema,
+          response: {
+            200: GetPaymentBankAccountInstructionsSchema,
+          },
+        },
+      },
+      getWireTransferInstructions
     )
     .post(
       '/bank-accounts',

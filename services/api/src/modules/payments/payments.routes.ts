@@ -1,4 +1,5 @@
 import {
+  BankAccountId,
   CardId,
   CreateBankAccount,
   CreateCard,
@@ -33,6 +34,44 @@ export async function getCardStatus(
   const card = await paymentService.getCardStatus(request.params.cardId)
   if (card) {
     reply.send(card)
+  } else {
+    reply.notFound()
+  }
+}
+
+export async function getWireTransferInstructions(
+  request: FastifyRequest<{
+    Params: BankAccountId
+  }>,
+  reply: FastifyReply
+) {
+  const paymentService = request
+    .getContainer()
+    .get<PaymentsService>(PaymentsService.name)
+  const bankAccount = await paymentService.getWireTransferInstructions(
+    request.params.bankAccountId
+  )
+  if (bankAccount) {
+    reply.send(bankAccount)
+  } else {
+    reply.notFound()
+  }
+}
+
+export async function getBankAccountStatus(
+  request: FastifyRequest<{
+    Params: BankAccountId
+  }>,
+  reply: FastifyReply
+) {
+  const paymentService = request
+    .getContainer()
+    .get<PaymentsService>(PaymentsService.name)
+  const bankAccount = await paymentService.getBankAccountStatus(
+    request.params.bankAccountId
+  )
+  if (bankAccount) {
+    reply.send(bankAccount)
   } else {
     reply.notFound()
   }

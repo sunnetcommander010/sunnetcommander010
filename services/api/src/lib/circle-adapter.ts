@@ -1,5 +1,6 @@
 import {
   CircleBankAccount,
+  CircleBankAccountStatus,
   CircleCard,
   CircleCardStatus,
   CircleCardVerification,
@@ -14,7 +15,9 @@ import {
   CircleVerificationAVSFailureCode,
   CircleVerificationAVSSuccessCode,
   CircleVerificationCvvStatus,
+  GetPaymentBankAccountInstructions,
   isCircleSuccessResponse,
+  PaymentBankAccountStatus,
   PaymentCardStatus,
   PaymentStatus,
   PublicKey,
@@ -38,12 +41,26 @@ function toPublicKeyBase(data: CirclePublicKey): PublicKey {
   }
 }
 
+function toBankAccountStatus(
+  status: CircleBankAccountStatus
+): PaymentBankAccountStatus {
+  let finalStatus
+  if (status === CircleBankAccountStatus.Failed) {
+    finalStatus = PaymentBankAccountStatus.Failed
+  } else if (status === CircleBankAccountStatus.Complete) {
+    finalStatus = PaymentBankAccountStatus.Complete
+  } else {
+    finalStatus = PaymentBankAccountStatus.Pending
+  }
+  return finalStatus
+}
+
 function toBankAccountBase(
   response: CircleBankAccount
 ): ToPaymentBankAccountBase {
   return {
     externalId: response.id,
-    status: response.status,
+    status: toBankAccountStatus(response.status),
   }
 }
 
@@ -202,6 +219,39 @@ export default class CircleAdapter {
     }
 
     this.logger.error({ response }, 'Failed to create payment')
+    return null
+  }
+
+  async getPaymentBankAccountInstructionsById(
+    id: string
+  ): Promise<GetPaymentBankAccountInstructions | null> {
+    const response = await this.http
+      .get(`v1/banks/wires/${id}/instructions`)
+      .json<CircleResponse<GetPaymentBankAccountInstructions>>()
+
+    if (isCircleSuccessResponse(response)) {
+      return response.data
+    }
+
+    this.logger.error(
+      { response },
+      'Failed to get payment bank account instructions'
+    )
+    return null
+  }
+
+  async getPaymentBankAccountById(
+    id: string
+  ): Promise<ToPaymentBankAccountBase | null> {
+    const response = await this.http
+      .get(`v1/banks/wires/${id}`)
+      .json<CircleResponse<CircleBankAccount>>()
+
+    if (isCircleSuccessResponse(response)) {
+      return toBankAccountBase(response.data)
+    }
+
+    this.logger.error({ response }, 'Failed to get payment bank account')
     return null
   }
 
