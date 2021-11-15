@@ -1,11 +1,11 @@
 .titleWrapper {
-  @apply bg-black border-t border-base-gray-border;
+  @apply mt-10 uppercase border-t border-base-gray-border;
 }
 
 .title {
-  @apply p-6 text-2xl font-bold text-center;
+  @apply p-6 text-4xl font-bold text-center;
 }
 
 .list {
-  @apply border-t border-base-gray-border px-7;
+  @apply bg-black border-t border-base-gray-border px-7;
 }

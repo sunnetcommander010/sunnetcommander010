@@ -42,7 +42,7 @@
   /* Base */
   @apply w-full mb-5 bg-black;
   /* Tablet + */
-  @apply md:w-250;
+  @apply md:w-250 md:self-start;
 }
 
 .gridColumn {

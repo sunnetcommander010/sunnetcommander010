@@ -1,5 +1,5 @@
 .alertWrapper {
-  @apply h-20;
+  @apply h-20 bg-base-gray-medium;
 }
 
 .alertWrapper span {
