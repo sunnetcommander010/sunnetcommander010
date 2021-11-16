@@ -7,7 +7,6 @@
 }
 
 .content {
-  @apply bg-black shadow-large;
 }
 
 .alert p {

@@ -1,12 +1,13 @@
 .root {
-  @apply relative flex flex-col h-full overflow-hidden text-center bg-black;
+  @apply relative flex flex-col h-full text-center bg-black;
 }
 
 .imageWrapper {
   @apply relative overflow-hidden transition-all duration-200 border-b-2 border-transparent shadow-none;
 }
 .root:hover .imageWrapper {
-  transform: scale(1.12) translateY(-12px) rotate(4deg);
+  @apply z-10 overflow-auto;
+  transform: scale(1.05) translateY(-12px) rotate(3deg);
   box-shadow: 0px 2.5px 0 0px red;
 }
 
