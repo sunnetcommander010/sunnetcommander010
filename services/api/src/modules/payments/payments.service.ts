@@ -1,5 +1,7 @@
 import {
+  CircleCreatePayment,
   CirclePaymentSourceType,
+  CirclePaymentVerificationOptions,
   CreateCard,
   CreatePayment,
   DEFAULT_CURRENCY,
@@ -11,6 +13,8 @@ import {
   PaymentStatus,
   UpdatePaymentCard,
 } from '@algomart/schemas'
+import { HTTPError } from 'got'
+import { URL } from 'node:url'
 import { Transaction } from 'objection'
 
 import { Configuration } from '@/configuration'
@@ -262,21 +266,49 @@ export default class PaymentsService {
     const card = await PaymentCardModel.query(trx).findById(cardId)
 
     // Create payment using Circle API
-    const payment = await this.circle.createPayment({
+    const paymentPayload: CircleCreatePayment = {
       idempotencyKey: idempotencyKey,
       metadata: metadata,
       amount: {
         amount,
         currency: DEFAULT_CURRENCY,
       },
-      verification: verification,
+      verification: CirclePaymentVerificationOptions.three_d_secure,
+      // @TODO: make these urls configurable?
+      verificationSuccessUrl: new URL(
+        '/checkout/success',
+        Configuration.webUrl
+      ).toString(),
+      verificationFailureUrl: new URL(
+        '/checkout/failure',
+        Configuration.webUrl
+      ).toString(),
       description: description,
       source: {
         id: card?.externalId || cardId,
         type: CirclePaymentSourceType.card, // @TODO: Update when support ACH
       },
       ...encryptedDetails,
-    })
+    }
+
+    this.logger.info({ paymentPayload }, 'creating payment')
+    const payment = await this.circle
+      .createPayment(paymentPayload)
+      .catch((error) => {
+        this.logger.error(error)
+
+        if (error instanceof HTTPError) {
+          this.logger.error(
+            {
+              response: error.response?.body,
+              statusCode: error.response?.statusCode,
+            },
+            'Circle API response'
+          )
+        }
+
+        return null
+      })
 
     // If payment doesn't go through:
     if (!payment) {
