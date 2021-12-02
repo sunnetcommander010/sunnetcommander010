@@ -12,6 +12,7 @@ import {
   CircleVerificationAVSFailureCode,
   CircleVerificationAVSSuccessCode,
   CircleVerificationCvvStatus,
+  CircleVerificationThreeDSecureStatus,
   isCircleSuccessResponse,
   PaymentCardStatus,
   PaymentStatus,
@@ -35,31 +36,12 @@ function toPublicKeyBase(data: CirclePublicKey): PublicKey {
   }
 }
 
-function toCardStatus(
-  status: CircleCardStatus,
-  verification: CircleCardVerification
-): PaymentCardStatus {
-  let finalStatus
-  if (
-    status === CircleCardStatus.Failed ||
-    Object.values(CircleVerificationAVSFailureCode).includes(
-      verification.avs
-    ) ||
-    verification.cvv === CircleVerificationCvvStatus.Fail
-  ) {
-    finalStatus = PaymentCardStatus.Failed
-  } else if (
-    status === CircleCardStatus.Complete &&
-    Object.values(CircleVerificationAVSSuccessCode).includes(
-      verification.avs
-    ) &&
-    verification.cvv === CircleVerificationCvvStatus.Pass
-  ) {
-    finalStatus = PaymentCardStatus.Complete
-  } else {
-    finalStatus = PaymentCardStatus.Pending
-  }
-  return finalStatus
+function toCardStatus(status: CircleCardStatus): PaymentCardStatus {
+  return {
+    [CircleCardStatus.Complete]: PaymentCardStatus.Complete,
+    [CircleCardStatus.Failed]: PaymentCardStatus.Failed,
+    [CircleCardStatus.Pending]: PaymentCardStatus.Pending,
+  }[status]
 }
 
 function toCardBase(response: CircleCard): ToPaymentCardBase {
@@ -69,45 +51,27 @@ function toCardBase(response: CircleCard): ToPaymentCardBase {
     externalId: response.id,
     network: response.network,
     lastFour: response.last4,
-    status: toCardStatus(response.status, response.verification),
+    status: toCardStatus(response.status),
     error: response.errorCode,
   }
 }
 
-function toPaymentStatus(
-  status: CirclePaymentStatus,
-  verification: CirclePaymentVerification
-): PaymentStatus {
-  let finalStatus
-  if (
-    status === CirclePaymentStatus.Failed ||
-    Object.values(CircleVerificationAVSFailureCode).includes(
-      verification?.avs
-    ) ||
-    verification?.cvv === CircleVerificationCvvStatus.Fail
-  ) {
-    finalStatus = PaymentStatus.Failed
-  } else if (
-    status === CirclePaymentStatus.Paid &&
-    Object.values(CircleVerificationAVSSuccessCode).includes(
-      verification?.avs
-    ) &&
-    verification?.cvv === CircleVerificationCvvStatus.Pass
-  ) {
-    finalStatus = PaymentStatus.Paid
-  } else if (status === CirclePaymentStatus.Confirmed) {
-    finalStatus = PaymentStatus.Confirmed
-  } else {
-    finalStatus = PaymentStatus.Pending
-  }
-  return finalStatus
+function toPaymentStatus(status: CirclePaymentStatus): PaymentStatus {
+  return {
+    [CirclePaymentStatus.ActionRequired]: PaymentStatus.ActionRequired,
+    [CirclePaymentStatus.Confirmed]: PaymentStatus.Confirmed,
+    [CirclePaymentStatus.Failed]: PaymentStatus.Failed,
+    [CirclePaymentStatus.Pending]: PaymentStatus.Pending,
+    [CirclePaymentStatus.Paid]: PaymentStatus.Paid,
+  }[status]
 }
 
 function toPaymentBase(response: CirclePaymentResponse): ToPaymentBase {
   return {
     externalId: response.id,
-    status: toPaymentStatus(response.status, response.verification),
+    status: toPaymentStatus(response.status),
     error: response.errorCode,
+    action: response.requiredAction?.redirectUrl,
   }
 }
 

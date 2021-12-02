@@ -15,6 +15,7 @@ export class PaymentModel extends BaseModel {
   paymentCardId!: string | null
   status!: PaymentStatus | null
   error!: string | null
+  action!: string | null
 
   payer?: UserAccountModel
   pack?: PackModel
