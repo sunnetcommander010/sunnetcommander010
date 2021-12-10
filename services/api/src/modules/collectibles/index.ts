@@ -4,6 +4,7 @@ import {
   CollectibleListShowcaseSchema,
   CollectibleListWithTotalSchema,
   CollectibleShowcaseQuerystringSchema,
+  ExportCollectibleSchema,
 } from '@algomart/schemas'
 import { Type } from '@sinclair/typebox'
 import { FastifyInstance } from 'fastify'
@@ -11,6 +12,7 @@ import fastifyBearerAuth from 'fastify-bearer-auth'
 
 import {
   addCollectibleShowcase,
+  exportCollectible,
   getCollectibles,
   getShowcaseCollectibles,
   removeCollectibleShowcase,
@@ -96,5 +98,20 @@ export async function collectiblesRoutes(app: FastifyInstance) {
         },
       },
       removeCollectibleShowcase
+    )
+    .post(
+      '/export',
+      {
+        transact: true,
+        schema: {
+          tags,
+          security,
+          body: ExportCollectibleSchema,
+          response: {
+            204: Type.Null(),
+          },
+        },
+      },
+      exportCollectible
     )
 }

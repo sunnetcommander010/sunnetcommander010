@@ -4,6 +4,8 @@ import { FirebaseOptions } from 'firebase/app'
 import { ServiceAccount } from 'firebase-admin'
 import getConfig from 'next/config'
 
+import { ChainType } from './libs/algorand-adapter'
+
 export const Environment = {
   config<T = string>(key: string, fallback: T) {
     const { publicRuntimeConfig = {}, serverRuntimeConfig = {} } =
@@ -11,6 +13,10 @@ export const Environment = {
     return (publicRuntimeConfig[key] ||
       serverRuntimeConfig[key] ||
       fallback) as T
+  },
+
+  get chainType(): ChainType {
+    return this.config('chainType', ChainType.TestNet)
   },
 
   get firebaseConfig() {

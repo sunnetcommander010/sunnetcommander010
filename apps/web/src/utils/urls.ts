@@ -42,6 +42,7 @@ export const urls = {
       createBidForPack: 'api/v1/bid/add-to-pack',
       createCard: '/api/v1/payments/create-card',
       createPayment: '/api/v1/payments/create-payment',
+      exportCollectible: '/api/v1/asset/export',
       getAllCollections: '/api/v1/collection/get-all-collections',
       getBankAccountInstructions:
         '/api/v1/payments/get-bank-account-instructions',

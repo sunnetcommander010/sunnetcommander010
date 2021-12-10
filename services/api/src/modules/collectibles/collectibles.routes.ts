@@ -1,4 +1,4 @@
-import { CollectibleId } from '@algomart/schemas'
+import { CollectibleId, ExportCollectible } from '@algomart/schemas'
 import {
   CollectibleListQuerystring,
   CollectibleShowcaseQuerystring,
@@ -90,4 +90,20 @@ export async function removeCollectibleShowcase(
   )
 
   reply.status(204).send()
+}
+
+export async function exportCollectible(
+  request: FastifyRequest<{ Body: ExportCollectible }>,
+  reply: FastifyReply
+) {
+  const collectiblesService = request
+    .getContainer()
+    .get<CollectiblesService>(CollectiblesService.name)
+
+  const result = await collectiblesService.exportCollectible(
+    request.body,
+    request.transaction
+  )
+
+  reply.send(result)
 }

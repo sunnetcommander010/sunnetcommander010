@@ -15,6 +15,7 @@ import {
   CreatePayment,
   CreateUserAccountRequest,
   DEFAULT_LOCALE,
+  ExportCollectible,
   ExternalId,
   GetPaymentBankAccountInstructions,
   GetPaymentBankAccountStatus,
@@ -180,6 +181,12 @@ export class ApiClient {
         },
         json: { collectibleId: request.collectibleId },
       })
+      .then((response) => response.ok)
+  }
+
+  async exportCollectible(request: ExportCollectible) {
+    return await this.http
+      .post('collectibles/export', { json: request })
       .then((response) => response.ok)
   }
   //#endregion
